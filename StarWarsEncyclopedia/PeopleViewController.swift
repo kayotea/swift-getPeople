@@ -35,7 +35,7 @@ class PeopleViewController: UITableViewController {
                         let resultsArray = results as! [NSDictionary]
                         
                         self.people = resultsArray
-                        print (self.people)
+                        //print (self.people)
                         self.tableView.reloadData()
                     }
                 }
@@ -46,6 +46,10 @@ class PeopleViewController: UITableViewController {
         // execute the task and then wait for the response
         // to run the completion handler. This is async!
         task.resume()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("PeopleViewController viewWillAppear")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

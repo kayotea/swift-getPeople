@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qbs-uh-3bd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KBt-SF-GIT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,33 +9,81 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--People View Controller-->
-        <scene sceneID="DrK-t9-TPt">
+        <!--Characters-->
+        <scene sceneID="Q9M-uD-epe">
             <objects>
-                <tableViewController id="qbs-uh-3bd" customClass="PeopleViewController" customModule="StarWarsEncyclopedia" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nv4-iR-wra">
+                <tableViewController title="Characters" id="Ok1-gu-Ycz" customClass="PeopleViewController" customModule="StarWarsEncyclopedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="13M-b5-rnj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" id="Ozx-hX-FqW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="l2F-cL-uMn">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ozx-hX-FqW" id="FO0-uB-4SV">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l2F-cL-uMn" id="jIa-rY-eBi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="qbs-uh-3bd" id="MID-7u-Gph"/>
-                            <outlet property="delegate" destination="qbs-uh-3bd" id="ahd-yf-9rL"/>
+                            <outlet property="dataSource" destination="Ok1-gu-Ycz" id="JcF-C8-PoX"/>
+                            <outlet property="delegate" destination="Ok1-gu-Ycz" id="iXS-DJ-lvf"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Characters" id="pDX-aZ-Wqz"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tdI-X3-Qil" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q3F-MA-bFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="151"/>
+            <point key="canvasLocation" x="1983.2" y="154.27286356821591"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cNc-a3-9Vb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="KBt-SF-GIT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="AFw-P5-hWk">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ok1-gu-Ycz" kind="relationship" relationship="viewControllers" id="2RG-H5-TNi"/>
+                        <segue destination="aFD-To-B3p" kind="relationship" relationship="viewControllers" id="Cj1-Un-w4M"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJC-WG-LgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044" y="154.27286356821591"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="RrP-Bf-30h">
+            <objects>
+                <tableViewController title="Movies" id="aFD-To-B3p" userLabel="Movies" customClass="MovieTableViewController" customModule="StarWarsEncyclopedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9X4-kx-bWQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="op7-lv-nlG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="op7-lv-nlG" id="8dm-Vr-7GA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aFD-To-B3p" id="u1C-Cj-GJJ"/>
+                            <outlet property="delegate" destination="aFD-To-B3p" id="E7u-ih-mza"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Movies" id="y41-ZV-KgW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cJs-7M-Xm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473" y="912"/>
         </scene>
     </scenes>
 </document>

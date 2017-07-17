@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CE066771F1D49DA00A697ED /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE066761F1D49DA00A697ED /* MovieTableViewController.swift */; };
 		0CF610251F196CC000DBDDF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF610241F196CC000DBDDF1 /* AppDelegate.swift */; };
 		0CF610271F196CC000DBDDF1 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF610261F196CC000DBDDF1 /* PeopleViewController.swift */; };
 		0CF6102A1F196CC000DBDDF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CF610281F196CC000DBDDF1 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CE066761F1D49DA00A697ED /* MovieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		0CF610211F196CC000DBDDF1 /* StarWarsEncyclopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsEncyclopedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF610241F196CC000DBDDF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CF610261F196CC000DBDDF1 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				0CF610241F196CC000DBDDF1 /* AppDelegate.swift */,
 				0CF610261F196CC000DBDDF1 /* PeopleViewController.swift */,
 				0CF610281F196CC000DBDDF1 /* Main.storyboard */,
+				0CE066761F1D49DA00A697ED /* MovieTableViewController.swift */,
 				0CF6102B1F196CC000DBDDF1 /* Assets.xcassets */,
 				0CF6102D1F196CC000DBDDF1 /* LaunchScreen.storyboard */,
 				0CF610301F196CC000DBDDF1 /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				0CF610271F196CC000DBDDF1 /* PeopleViewController.swift in Sources */,
 				0CF610251F196CC000DBDDF1 /* AppDelegate.swift in Sources */,
+				0CE066771F1D49DA00A697ED /* MovieTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +511,7 @@
 				0CF6104B1F196CC000DBDDF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CF6104C1F196CC000DBDDF1 /* Build configuration list for PBXNativeTarget "StarWarsEncyclopediaTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +520,7 @@
 				0CF6104E1F196CC000DBDDF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CF6104F1F196CC000DBDDF1 /* Build configuration list for PBXNativeTarget "StarWarsEncyclopediaUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +529,7 @@
 				0CF610511F196CC000DBDDF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
