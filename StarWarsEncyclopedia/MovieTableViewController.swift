@@ -12,40 +12,71 @@ class MovieTableViewController: UITableViewController {
 
     var films = [NSDictionary]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let url = URL(string: "http://swapi.co/api/films")
-        let session = URLSession.shared
-        let task = session.dataTask(with: url!, completionHandler: {
+        StarWarsModel.getAllFilms(completionHandler: {
             
-            data, response, error in //data = JSON data//response = headers/meta// error = error//
-            
+            data, response, error in
             do {
-
+                
+                //try converting the JSON object to "Foundation Tyes" (NSDictionary, NSArray, NSString, etc.)
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
                     
-                    //print(jsonResult)
-                    if let results = jsonResult["results"] {
+                    if let results = jsonResult["results"] as? NSArray {
                         
                         let resultsArray = results as! [NSDictionary]
-                        
-                        //print (resultsArray)
                         self.films = resultsArray
                         self.tableView.reloadData()
                         
+                        //for person in results {
+                        //let personDict = person as! NSDictionary
+                        //self.people.append(personDict["name"]! as! String)
+                        //}
                     }
+                    
                 }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
             } catch {
-                print(error)
+                print ("Something went wrong")
             }
-            
-            
-            
         })
+
+        //let url = URL(string: "http://swapi.co/api/films")
+        //let session = URLSession.shared
+        //let task = session.dataTask(with: url!, completionHandler: {
+            
+            //data, response, error in //data = JSON data//response = headers/meta// error = error//
+            
+            //do {
+
+                //if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+                    
+                    //print(jsonResult)
+                    //if let results = jsonResult["results"] {
+                        
+                        //let resultsArray = results as! [NSDictionary]
+                        
+                        //print (resultsArray)
+                        //self.films = resultsArray
+                        //self.tableView.reloadData()
+                        
+                    //}
+                //}
+                //run on the main queue - speed up UI
+                //DispatchQueue.main.async {
+                    //self.tableView.reloadData()
+                //}
+            //} catch {
+                //print(error)
+            //}
+        //})
         
         //execute task, wait for response to run completion handler (async)
-        task.resume()
+        //task.resume()
     }
     
     override func viewWillAppear(_ animated: Bool) {
