@@ -81,6 +81,42 @@ class PeopleViewController: UITableViewController {
         // to run the completion handler. This is async!
         //task.resume()
     }
+    
+    //navigate to info about particular character - 
+    //listen for tap on accessory button
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        performSegue(withIdentifier: "LookAtPerson", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //check sender
+        if sender != nil {
+            
+            let navigationController = segue.destination as! UINavigationController
+            let personViewController = navigationController.topViewController as! PersonViewController
+            
+            let indexPath = sender as! NSIndexPath //sender used
+            //print("SENDER: \(indexPath)")
+            let person = people[indexPath.row]
+            //print("PERSON: \(person)")
+            
+            personViewController.personInfo = person
+            personViewController.indexPath = indexPath
+            
+        }
+        //if sender does not exist somehow
+        else {
+            
+            let navigationController = segue.destination as! UINavigationController
+            let personViewController = navigationController.topViewController as! PersonViewController
+                        
+            personViewController.personInfo = nil
+            personViewController.indexPath = nil
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("PeopleViewController viewWillAppear")
@@ -97,12 +133,18 @@ class PeopleViewController: UITableViewController {
         return people.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Create a generic cell
-        let cell = UITableViewCell()
+
+        let cell = UITableViewCell()// Create a generic cell
         // set the default cell label to the corresponding element in the people array
         cell.textLabel?.text = people[indexPath.row]["name"]! as? String
-        // return the cell so that it can be rendered
-        return cell
+        cell.accessoryType = UITableViewCellAccessoryType.detailButton
+        
+        return cell// return the cell so that it can be rendered
     }
+    
+    //@IBAction func unwindToPeopleView(sender: UIStoryboardSegue)
+    //{
+        //print(sender)
+    //}
 }
 

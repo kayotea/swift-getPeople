@@ -12,7 +12,6 @@ class MovieTableViewController: UITableViewController {
 
     var films = [NSDictionary]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         StarWarsModel.getAllFilms(completionHandler: {
@@ -79,6 +78,40 @@ class MovieTableViewController: UITableViewController {
         //task.resume()
     }
     
+    //navigate to info about particular character -
+    //listen for tap on accessory button
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        performSegue(withIdentifier: "LookAtFilm", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //check for sender
+        if sender != nil {
+            
+            let navigationController = segue.destination as! UINavigationController
+            let filmViewController = navigationController.topViewController as! FilmViewController
+            
+            let indexPath = sender as! NSIndexPath
+            print("SENDER: \(indexPath)")
+            let film = films[indexPath.row]
+            print("MOVIE: \(film)")
+            
+            filmViewController.filmInfo = film
+            filmViewController.indexPath = indexPath
+        }
+        //if sender doesn't exist somehow
+        else {
+            
+            let navigationController = segue.destination as! UINavigationController
+            let filmViewController = navigationController.topViewController as! FilmViewController
+            
+            filmViewController.filmInfo = nil
+            filmViewController.indexPath = nil
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("MovieTableViewController viewWillAppear")
@@ -106,6 +139,7 @@ class MovieTableViewController: UITableViewController {
         let cell = UITableViewCell()
         
         cell.textLabel?.text = films[indexPath.row]["title"]! as? String
+        cell.accessoryType = UITableViewCellAccessoryType.detailButton
         
         return cell
     }
